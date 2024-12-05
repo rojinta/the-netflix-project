@@ -6,7 +6,7 @@ The following visualizations are included in the project:
 
 **1. Content Over Time**:
 Line plot illustrating the growth of movies and TV shows on Netflix over the years
-![Figure 1](figures/content_over_time.png)
+<img src="figures/figure1.png" alt="Figure 1" width="300"/>
 
 **2. Genre Distribution**:
 Horizontal bar chart showing the most frequent genres in Netflix's library
