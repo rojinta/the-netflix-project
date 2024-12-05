@@ -10,6 +10,7 @@ Line plot illustrating the growth of movies and TV shows on Netflix over the yea
 
 **2. Genre Distribution**:
 Horizontal bar chart showing the most frequent genres in Netflix's library
+![Figure 2](figures/genre_distribution.png)
 
 **3. Distribution of Movie Ratings**:
 Pie chart visualizing the top 10 ratings of Netflix's movies and TV shows
@@ -20,7 +21,7 @@ Highlighting the most common words in Netflix titles
 **5. Movie Duration Distribution**:
 Box plot showing the typical runtime of Netflix movies
 
-**6. Geographical Distribution of Netflix Movies**:
+**6. Geographical Distribution of Movies**:
 Choropleth map Visualizing the number of titles contributed by different countries
 
 **7. Release Trends by Country Over Time**:
