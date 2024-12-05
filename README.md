@@ -30,7 +30,7 @@ Box plot showing the typical runtime of Netflix movies
 <img src="figures/movie_duration_distribution.png" alt="Figure 5" width="400"/>
 
 **6. Geographical Distribution of Movies**:
-Choropleth map Visualizing the number of titles contributed by different countries
+Choropleth map visualizing the number of titles contributed by different countries
 
 <img src="figures/choropleth_map.png" alt="Figure 6" width="400"/>
 
