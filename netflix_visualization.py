@@ -14,9 +14,7 @@ from itertools import combinations
 
 netflix_data = pd.read_csv('netflix_movies.csv')
 
-
 # Distribution of Movie Ratings
-
 valid_ratings = [
     'PG-13', 'TV-MA', 'PG', 'TV-14', 'TV-PG', 'TV-Y', 
     'TV-Y7', 'R', 'TV-G', 'G', 'NC-17', 'NR', 'TV-Y7-FV', 'UR'
@@ -40,9 +38,7 @@ plt.pie(
 plt.title("Distribution of Movie Ratings (Top 10)", fontsize=16)
 plt.savefig("distribution_of_movie_ratings.png", dpi=300, bbox_inches='tight')
 
-
 # Genre Distribution
-
 genres = netflix_data['listed_in'].str.split(',').explode().str.strip()
 top_genres = genres.value_counts().head(10)  # Top 10 genres
 
@@ -53,9 +49,7 @@ plt.xlabel("Count", fontsize=12)
 plt.ylabel("Genre", fontsize=12)
 plt.savefig("genre_distribution.png", dpi=300, bbox_inches='tight')
 
-
 # Content Over Time
-
 netflix_data['date_added'] = pd.to_datetime(netflix_data['date_added'], errors='coerce')
 netflix_data['year_added'] = netflix_data['date_added'].dt.year
 content_by_year = netflix_data.groupby(['year_added', 'type']).size().unstack(fill_value=0)
@@ -68,9 +62,7 @@ plt.ylabel("Number of Titles", fontsize=12)
 plt.legend(["Movies", "TV Shows"], title="Type", fontsize=10, loc="upper left")
 plt.savefig("content_over_time.png", dpi=300, bbox_inches='tight')
 
-
 # Movie Duration Distribution
-
 movie_durations = netflix_data[netflix_data['type'] == 'Movie']['duration']
 movie_durations = movie_durations.str.replace(' min', '').dropna().astype(int)
 
@@ -89,9 +81,7 @@ plt.title("Movie Duration Distribution", fontsize=16)
 plt.xlabel("Duration (Minutes)", fontsize=12)
 plt.savefig("movie_duration_distribution.png", dpi=300, bbox_inches='tight')
 
-
 # Geographical Distribution of Movies
-
 countries = netflix_data['country'].dropna().str.split(',').explode().str.strip()
 country_counts = countries.value_counts()
 
@@ -102,9 +92,7 @@ plt.xlabel("Number of Titles", fontsize=12)
 plt.ylabel("Country", fontsize=12)
 plt.savefig("geographical_distribution.png", dpi=300, bbox_inches='tight')
 
-
 # Choropleth Map
-
 df = pd.read_csv('netflix_movies.csv')
 df = df.country.value_counts().reset_index()
 
@@ -175,9 +163,7 @@ fig.update_traces(
 output_file = "choropleth_map.png"
 fig.write_image(output_file, format="png", scale=2) 
 
-
 # Word Cloud of Movie Titles
-
 titles = ' '.join(netflix_data['title'].dropna())
 wordcloud = WordCloud(width=800, height=400, background_color='white', colormap='viridis').generate(titles)
 
@@ -187,9 +173,7 @@ plt.axis('off')
 plt.title("Word Cloud of Movie Titles", fontsize=16)
 plt.savefig("word_cloud.png", dpi=300, bbox_inches='tight')
 
-
 # Co-appearance Network of Cast Members
-
 cast = netflix_data['cast'].dropna().str.split(',').explode().str.strip()
 cast_pairs = netflix_data['cast'].dropna().apply(lambda x: list(map(str.strip, x.split(','))))
 edges = [tuple(sorted(pair)) for pairs in cast_pairs for pair in combinations(pairs, 2)]
@@ -230,9 +214,7 @@ ax.add_patch(border)
 plt.axis('off')
 plt.savefig("coappearance_network.png", dpi=150, bbox_inches='tight')
 
-
 # Release Trends by Country Over Time
-
 country_year = netflix_data.groupby(['year_added', 'country']).size().unstack(fill_value=0)
 
 top_countries = country_year.sum().sort_values(ascending=False).head(10).index
