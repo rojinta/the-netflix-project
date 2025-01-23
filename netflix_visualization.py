@@ -12,7 +12,7 @@ import networkx as nx
 from collections import Counter
 from itertools import combinations
 
-netflix_data = pd.read_csv('netflix_movies.csv')
+netflix_data = pd.read_csv('../data/netflix_movies.csv')
 
 # Distribution of Movie Ratings
 valid_ratings = [
